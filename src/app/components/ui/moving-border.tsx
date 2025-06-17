@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import {
   motion,
   useAnimationFrame,
@@ -7,9 +7,8 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
 import { cn } from "@/app/utils/cn";
- 
+
 export function Button({
   borderRadius = "1.75rem",
   children,
@@ -53,7 +52,7 @@ export function Button({
           />
         </MovingBorder>
       </div>
- 
+
       <div
         className={cn(
           "relative flex h-full w-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl",
@@ -68,7 +67,7 @@ export function Button({
     </Component>
   );
 }
- 
+
 export const MovingBorder = ({
   children,
   duration = 3000,
@@ -82,28 +81,36 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: any;
 }) => {
-  const pathRef = useRef<any>();
-  const progress = useMotionValue<number>(0);
- 
+  const pathRef = useRef<SVGRectElement | null>(null);
+  const progress = useMotionValue(0);
+
   useAnimationFrame((time) => {
-    const length = pathRef.current?.getTotalLength();
-    if (length) {
-      const pxPerMillisecond = length / duration;
-      progress.set((time * pxPerMillisecond) % length);
+    const pathEl = pathRef.current;
+    if (pathEl && typeof pathEl.getTotalLength === "function") {
+      const length = pathEl.getTotalLength();
+      const pxPerMs = length / duration;
+      progress.set((time * pxPerMs) % length);
     }
   });
- 
-  const x = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val).x,
-  );
-  const y = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val).y,
-  );
- 
+
+  const x = useTransform(progress, (val) => {
+    const pathEl = pathRef.current;
+    if (pathEl && typeof pathEl.getPointAtLength === "function") {
+      return pathEl.getPointAtLength(val).x;
+    }
+    return 0;
+  });
+
+  const y = useTransform(progress, (val) => {
+    const pathEl = pathRef.current;
+    if (pathEl && typeof pathEl.getPointAtLength === "function") {
+      return pathEl.getPointAtLength(val).y;
+    }
+    return 0;
+  });
+
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
- 
+
   return (
     <>
       <svg
