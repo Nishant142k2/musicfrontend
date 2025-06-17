@@ -16,7 +16,7 @@ const eslintConfig = [
     rules: {
       // Disable no-unused-vars globally
       "no-unused-vars": "off",
-
+      "@typescript-eslint/no-explicit-any": "off"
       // Optionally: allow unused vars prefixed with _
       // "no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }]
     },

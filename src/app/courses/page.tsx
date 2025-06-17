@@ -4,21 +4,21 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
 import courseData from '@/data/music_courses.json'
 
-interface Course {
-    title: string;
-    description: string;
-    thumbnail: string;
-    link: string;
-    image? :string;
-}
+// interface Course {
+//     title: string;
+//     description: string;
+//     thumbnail: string;
+//     link: string;
+//     image? :string;
+// }
 
 function page() {
   return (
     <div className='min-h-screen bg-black py-12 pt-36'>
        <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-white">All Courses ({courseData.courses.length})</h1>
        <div className="flex flex-wrap justify-center">
-        {courseData.courses.map((course) =>(
-             <CardContainer className="inter-var">
+        {courseData.courses.map((course,key) =>(
+             <CardContainer key={key} className="inter-var">
              <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
                <CardItem
                  translateZ="50"
@@ -43,7 +43,7 @@ function page() {
                  />
                </CardItem>
                <div className="flex justify-between items-center mt-20">
-                 <CardItem
+                 {/* <CardItem
                    translateZ={20}
                    as="a"
                    href="https://twitter.com/mannupaaji"
@@ -51,7 +51,7 @@ function page() {
                    className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
                  >
                    Try now →
-                 </CardItem>
+                 </CardItem> */}
                  <CardItem
                    translateZ={20}
                    as="button"
