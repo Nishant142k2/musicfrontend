@@ -1,3 +1,11 @@
+## 📸 Screenshots
+
+| Home Page | Courses Page | Instructors Page |
+|-----------|--------------|------------------|
+| ![Home]('public/Screenshot from 2025-06-27 20-35-13.png) | ![Courses](public/Screenshot from 2025-06-27 20-35-25.png) | ![Instructors](public/Screenshot from 2025-06-27 20-35-54.png
+) |
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -28,6 +36,40 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+# 🎵 Music Academy – Frontend for a Fictional Music Education Platform
+
+[Live Demo](https://musicfrontend-git-main-nishant142k2s-projects.vercel.app/) • [GitHub Repo](https://github.com/Nishant142k2/musicfrontend)
+
+A modern and responsive frontend application built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** for a fictional music academy that offers instructor-led music courses. This project was developed as a learning initiative to explore advanced frontend tooling, modular architecture, and modern design principles.
+
+---
+
+
+
+---
+
+## 🚀 Features
+
+- 🎹 **Courses Page** – Browse a variety of music courses.
+- 👨‍🏫 **Instructors Page** – Meet the fictional instructors.
+- 🧭 **Dynamic Routing** – Built using App Router in Next.js 14.
+- 📱 **Responsive Design** – Looks great on all screen sizes.
+- 🧱 **Reusable Components** – Clean and modular component structure.
+- 🔐 **Type Safety** – Full TypeScript support for reliability and clarity.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **Deployment:** Vercel
+
+---
+
 
 ## Deploy on Vercel
 
